@@ -1,35 +1,139 @@
 header {
-  font-size: 50px;
-  color: white;
-  text-align: center;
-  padding-top: 30px;
-  margin: auto;
-  font-family: Times New Roman;
+  height: 270px;
+  width: 600px;
+  margin: 0 auto;
+}
+
+#title {
+  max-width: 600px;
 }
 
 body {
+  background-color: black;
+}
+.content {
+  width: 1200px;
+  height: 900px;
+  margin: 0 auto;
+  display: flex;
+
+}
+
+#spriteA {
+  position: absolute;
+  top: 555px;
+  left: 60px;
+  width: 30px;
+  height: 30px;
+  background: url('images/characters/Sprite_Boy_LightBrownHair.gif') no-repeat;
+}
+
+#spriteB {
+  position: absolute;
+  top: 605px;
+  left: 111px;
+  width: 30px;
+  height: 30px;
+  background: url('images/characters/Sprite_Boy_Blackhair.gif') no-repeat;
+}
+
+.rightGrid {
+  width: 300px;
+  height: 700px;
+  margin-left: 100px;
+  float: right;
+  color: white;
+  font-family: Helvetica;
+  text-align: center;
+  background-color: black;
+}
+
+#playerA {
+  height: 200px;
+  width: 300px;
+  margin-top: -20px 0px 50px 0px;
   background-color: maroon;
 }
 
-.main {
-  height: 100%;
-  width: 600px;
-  margin-left: 70px;
-  margin-top: 30px;
-  margin-left: 70px
-}
-
-#map {
-  height: 600px;
-  width: 600px;
-  margin-top: 30px;
-  background-color: white;
-}
-
-#info {
+#playerB {
   height: 200px;
+  width: 300px;
+  margin-top: 50px;
+  background-color: maroon;
+}
+
+#dice {
   background-color: white;
-  margin-top: 40px;
+}
+#dicebox {
+  height: 150px;
+  width: 300px;
+  clear: both;
+  margin-top: 50px;
 
 }
+button {
+  height: 80px;
+  width: 250px;
 }
+
+#playerAmoves {
+  color: tan;
+}
+
+#playerBmoves {
+  color: tan;
+}
+
+table {
+  width: 750px;
+  height: 687px;
+  text-align: center;
+  border: 1px dotted white;
+}
+
+
+table, tr, td {
+  border: 1px solid black;
+  border-spacing: 0px;
+  background-color: #E9C771;
+}
+
+.water, #B2, #B14, #M2, #M14 {
+  background-color: #57D4F4;
+}
+
+#D4, #I8, #G14, #B8, #C12, #B4, #C14, #G8, #J5, #C6 {
+  padding: 0px;
+}
+
+td {
+  height: 48px;
+  width: 48px;
+  padding: 0px;
+}
+
+#B3, #B13, #M3, #M13, #C2, #C3, #C13, #C14, #L2, #L3, #L13, #L14, #D4, #D6, #D7, #D8,
+#D9, #D10, #D12, #E5, #E6, #E7, #E8, #E9, #E10, #E11, #F5, #F8, #F11, #G5, #G7, #G8,
+#G9, #G11, #H5, #H6, #H7, #H9, #H10, #H11, #I6, #I7, #I8, #I9, #I10, #J5, #J6, #J7, #J8,
+#J9, #J10, #J11, #K4, #K6, #K8, #K10, #K12 {
+  background-color: #E6D4AC;
+}
+
+
+#mapspace {
+  position: relative;
+  width: 749px;
+  height: 697px;
+  border: 8px dotted rgba(255,255,255,0.7)
+}
+
+#reset {
+  height: 30px;
+  width: 200px;
+}
+
+
+
+
+

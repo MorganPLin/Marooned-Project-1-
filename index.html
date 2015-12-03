@@ -6,29 +6,50 @@
 
 </head>
 
-
-<header>
-  MAROONED
-</header>
-
 <body>
 
-  <div class='main'>
-    <div id='map'></div>
-    <div id='info'></div>
+
+<header>
+  <img src="images/maroonedtitle.gif" id='title'>
+</header>
+
+<div class='content'>
+
+  <div id='mapspace'>
+    <div id="spriteA"></div>
+    <div id="spriteB"></div>
   </div>
+
+
 
   <div class='rightGrid'>
-    <div id='playerA'></div>
-    <div id='dice'>
-      <input
-    <div id='player B'></div>
+
+    <div id='playerA'>
+      <p>PLAYER A</p>
+      <p id='playerAmoves'></p2>
+    </div>
+
+    <div id='dicebox'>
+         <img src="images/dice/d1.gif" name="dice" id="dice">
+         <button type='button' onClick="throwdice()">ROLL DICE</button>
+    </div>
+
+    <div id='playerB'>
+      <p>PLAYER B</p>
+      <p id='playerBmoves'></p>
+    </div>
+
+    <button id='reset'>RESET GAME</button>
+
   </div>
 
+
+</div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="maroonedScript.js"></script>
 
 </body>
+
 </script>
 </html>
