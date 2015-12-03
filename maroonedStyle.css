@@ -28,6 +28,20 @@ body {
   background: url('images/characters/Sprite_Boy_LightBrownHair.gif') no-repeat;
 }
 
+#woodcountA, #woodcountB {
+  font-family: Arial;
+  font-size: 22px;
+  color: brown;
+  margin: 0px;
+}
+
+#coincountA, #coincountB {
+  font-family: Arial;
+  font-size: 22px;
+  color: orange;
+  margin: 0px;
+}
+
 #spriteB {
   position: absolute;
   top: 605px;
@@ -46,35 +60,43 @@ body {
   font-family: Helvetica;
   text-align: center;
   background-color: black;
+  border: 1px solid white;
 }
 
 #playerA {
   height: 200px;
   width: 300px;
-  margin-top: -20px 0px 50px 0px;
+  margin-top: 0px;
   background-color: maroon;
 }
 
 #playerB {
   height: 200px;
   width: 300px;
-  margin-top: 50px;
+  margin: 50px 0px 0px -110px;
   background-color: maroon;
 }
 
 #dice {
   background-color: white;
+  margin-top: 20px;
 }
 #dicebox {
   height: 150px;
   width: 300px;
-  clear: both;
-  margin-top: 50px;
+  margin-top: 115px;
+  margin-left: -110px;
 
 }
 button {
   height: 80px;
   width: 250px;
+}
+#boatA, #boatB {
+  height: 60px;
+  width: 80px;
+  border: 1px solid white;
+  margin: 0 auto;
 }
 
 #playerAmoves {
@@ -131,6 +153,7 @@ td {
 #reset {
   height: 30px;
   width: 200px;
+  margin: 0 auto;
 }
 
 

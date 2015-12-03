@@ -7,27 +7,28 @@ var face3=new Image()
 face3.src="images/dice/d3.gif";
 var face4=new Image()
 face4.src="images/dice/d4.gif";
-var face5=new Image()
-face5.src="images/dice/d5.gif"
-var face6=new Image()
-face6.src="images/dice/d6.gif";
+// var face5=new Image()
+// face5.src="images/dice/d5.gif"
+// var face6=new Image()
+// face6.src="images/dice/d6.gif";
 
 var displaymoveA = document.getElementById('playerAmoves');
 var displaymoveB = document.getElementById('playerBmoves')
 var counter = 0;
-var randomDice = Math.floor(Math.random()*6+1);
+var randomDice = Math.floor(Math.random()*4+1);
 
 //switch sprites after each click / click called in html
-function throwdice() { //create 0-5
+function throwdice(countmovesA) { //create 0-5
+  randomDice = Math.floor(Math.random()*4+1);
   document.images['dice'].src = eval("face" + randomDice + ".src");
-
 
  if (counter % 2 === 0) {
     displaymoveA.innerHTML= "Move " + randomDice + " spots";
     document.onkeydown = movespriteA;
     document.getElementById('playerA').style.border = "5px solid rgba(255,255,255,0.7)";
     document.getElementById('playerB').style.border = "none";
-    };
+  }
+
  if (counter % 2 === 1) {
     displaymoveB.innerHTML= "Move " + randomDice + " spots";
     document.onkeydown = movespriteB;
@@ -35,6 +36,7 @@ function throwdice() { //create 0-5
     document.getElementById('playerA').style.border = "none";
     }
     counter ++;
+
 }
 
 //move spriteA with arrow keys
@@ -84,6 +86,7 @@ function movespriteA(event) {
   resetA();
 }
 
+
 function resetA() {
     if ((randomDice - counterA) <= 0) {
       document.onkeydown = null;
@@ -94,9 +97,10 @@ function resetA() {
 
 function countmovesA() {
     if (randomDice > counterA) {
-    displaymoveA.innerHTML = "Move " + (randomDice - counterA) + " spots";
+      displaymoveA.innerHTML = "Move " + (randomDice - counterA) + " spots";
     }
 }
+
 
 //move spriteB with arrow keys W,S,D,A
 var counterB = 0;
@@ -232,20 +236,43 @@ function randomWoodL() {
   document.getElementById('L' + column).setAttribute('id','wood5');
 }
 
+//function makes wood disappear and count wood
+
+var woodicons = ['#wood1', '#wood2', '#wood3', '#wood4', '#wood5']; //jQuery
+var woodiconS = ['wood1', 'wood2', 'wood3', 'wood4', 'wood5'];
+var woodA = 0;
+var woodB = 0;
 
 function grabWood() {
-  var woodicons = ['#wood1', '#wood2', '#wood3', '#wood4', '#wood5']
+
   for (var i = 0; i <5; i++) {
   var leftW = $(woodicons[i]).position().left;
   var topW = $(woodicons[i]).position().top;
+
+
+   if (((leftW < leftA) && (leftA < (leftW + 50)) && (topW < topA) && (topA < (topW + 50))) && (document.getElementById(woodiconS[i]).innerHTML = '<img src="images/map/woodicon.gif">')) {
+         woodA = 1;
+        $('#woodcountA').html('Wood x' + woodA);
+         woodA++;
+   }
+
    if ((leftW < leftA) && (leftA < (leftW + 50)) && (topW < topA) && (topA < (topW + 50))) {
     $(woodicons[i]).html('');
     }
+
+   if (((leftW < leftB) && (leftB < (leftW + 50)) && (topW < topB) && (topB < (topW + 50))) && (document.getElementById(woodiconS[i]).innerHTML = '<img src="images/map/woodicon.gif">')) {
+         woodB = 1;
+        $('#woodcountB').html('Wood x' + woodB);
+         woodB++;
+   }
+
    if ((leftW < leftB) && (leftB < (leftW + 50)) && (topW < topB) && (topB < (topW + 50))) {
     $(woodicons[i]).html('');
-    }
+   }
+
   }
 }
+
 
 //Insert Random Coins
 function randomCoinB() {
@@ -254,14 +281,14 @@ function randomCoinB() {
   document.getElementById('B' + column).setAttribute('id','coin1');
 }
 
-function randomCoinD() {
-  var column = Math.floor(Math.random()*13+2);
-  document.getElementById('D' + column).innerHTML ='<img src="images/map/coinicon.gif">';
-  document.getElementById('D' + column).setAttribute('id','coin2');
+function randomCoinF1() {
+  var column = Math.floor(Math.random()*7+2);
+  document.getElementById('F' + column).innerHTML ='<img src="images/map/coinicon.gif">';
+  document.getElementById('F' + column).setAttribute('id','coin2');
 }
 
-function randomCoinF() {
-  var column = Math.floor(Math.random()*13+2);
+function randomCoinF2() {
+  var column = Math.floor(Math.random()*6+9);
   document.getElementById('F' + column).innerHTML ='<img src="images/map/coinicon.gif">';
   document.getElementById('F' + column).setAttribute('id','coin3');
 }
@@ -284,20 +311,52 @@ function randomCoinM() {
   document.getElementById('M' + column).setAttribute('id','coin6');
 }
 
-//grabCoin for A and B
+//grabCoin and count coins for A and B
+
+var coinicons = ['#coin1', '#coin2', '#coin3', '#coin4', '#coin5', '#coin6'];
+var coiniconS = ['coin1', 'coin2', 'coin3', 'coin4', 'coin5', 'coin6']
+var coinA = 0;
+var coinB = 0;
+
 function grabCoin() {
-  var coinicons = ['#coin1', '#coin2', '#coin3', '#coin4', '#coin5', '#coin6']
+
   for (var i = 0; i < 6; i++) {
   var leftC = $(coinicons[i]).position().left;
   var topC = $(coinicons[i]).position().top;
+
+
+   if (((leftC < leftA) && (leftA < (leftC + 50)) && (topC < topA) && (topA < (topC + 50))) && (document.getElementById(coiniconS[i]).innerHTML = '<img src="images/map/coinicon.gif">')) {
+         coinA = 1;
+        $('#coincountA').html('Coin x ' + coinA);
+         coinA++;
+   }
+
    if ((leftC < leftA) && (leftA < (leftC + 50)) && (topC < topA) && (topA < (topC + 50))) {
     $(coinicons[i]).html('');
-    }
+   }
+
+   if (((leftC < leftB) && (leftB < (leftC + 50)) && (topC < topB) && (topB < (topC + 50))) && (document.getElementById(coiniconS[i]).innerHTML = '<img src="images/map/coinicon.gif">')) {
+         coinB = 1;
+        $('#coincountB').html('Coin x ' + coinB);
+         coinB++;
+   }
+
    if ((leftC < leftB) && (leftB < (leftC + 50)) && (topC < topB) && (topB < (topC + 50))) {
     $(coinicons[i]).html('');
     }
+
   }
+
 }
+
+  //change coin count if position is on square where coins are AND it is empty//call in keymovement
+
+
+
+
+//place trading posts
+document.getElementById('D4').innerHTML = '<img src="images/map/palm_tree.gif">';
+document.getElementById('K12').innerHTML = '<img src="images/map/palm_tree.gif">'
 
 var resetbutton = document.getElementById('reset');
 resetbutton.addEventListener ("click", function() {
@@ -311,14 +370,11 @@ randomWoodH();
 randomWoodI();
 randomWoodL();
 randomCoinB();
-randomCoinD();
-randomCoinF();
+randomCoinF1();
+randomCoinF2();
 randomCoinG();
 randomCoinJ();
 randomCoinM();
-
-
-
 
 
 
