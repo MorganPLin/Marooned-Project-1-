@@ -60,37 +60,40 @@ body {
   font-family: Helvetica;
   text-align: center;
   background-color: black;
-  border: 1px solid white;
+  border: 8px dotted rgba(255,255,255,0.7);
 }
 
 #playerA {
   height: 200px;
-  width: 300px;
+  width: 292px;
   margin-top: 0px;
-  background-color: maroon;
 }
 
 #playerB {
   height: 200px;
-  width: 300px;
-  margin: 50px 0px 0px -110px;
-  background-color: maroon;
+  width: 292px;
+  margin-top: 42px;
+  margin-left: -106px;
 }
 
 #dice {
   background-color: white;
   margin-top: 20px;
 }
+
 #dicebox {
   height: 150px;
   width: 300px;
-  margin-top: 115px;
+  margin-top: 80px;
   margin-left: -110px;
 
 }
-button {
+
+#rolldice {
   height: 80px;
   width: 250px;
+  background-color: magenta;
+  border: 1px solid white;
 }
 #boatA, #boatB {
   height: 60px;
@@ -116,9 +119,10 @@ table {
 
 
 table, tr, td {
-  border: 1px solid black;
+  border: 1px solid white;
   border-spacing: 0px;
-  background-color: #E9C771;
+/*  background-color: #E9C771;*/
+  background-color: #57D4F4;;
 }
 
 .water, #B2, #B14, #M2, #M14 {
@@ -153,7 +157,9 @@ td {
 #reset {
   height: 30px;
   width: 200px;
-  margin: 0 auto;
+  background-color: yellow;
+  border: 1px solid white;
+  margin: 20px 0px 0px -58px;
 }
 
 
