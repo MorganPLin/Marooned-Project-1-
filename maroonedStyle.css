@@ -13,7 +13,7 @@ body {
 }
 .content {
   width: 1200px;
-  height: 900px;
+  height: 100%;
   margin: 0 auto;
   display: flex;
 
@@ -33,6 +33,10 @@ body {
   font-size: 22px;
   color: brown;
   margin: 0px;
+  border: 1px solid brown;
+  height: 25px;
+  width: 107px;
+  float: right;
 }
 
 #coincountA, #coincountB {
@@ -40,6 +44,16 @@ body {
   font-size: 22px;
   color: orange;
   margin: 0px;
+  border: 1px solid yellow;
+  height: 25px;
+  width: 107px;
+  float: right;
+}
+
+.pointbox {
+  height: 100px;
+  width: 108px;
+  border: 1px solid red;
 }
 
 #spriteB {
@@ -53,7 +67,8 @@ body {
 
 .rightGrid {
   width: 300px;
-  height: 700px;
+/*  height: 697px;*/
+  height: 650px;
   margin-left: 100px;
   float: right;
   color: white;
@@ -61,19 +76,22 @@ body {
   text-align: center;
   background-color: black;
   border: 8px dotted rgba(255,255,255,0.7);
+  position: relative;
 }
 
 #playerA {
   height: 200px;
   width: 292px;
   margin-top: 0px;
+  border: 1px solid pink;
 }
 
 #playerB {
   height: 200px;
   width: 292px;
-  margin-top: 42px;
-  margin-left: -106px;
+  margin: 0 auto;
+  border: 1px solid teal;
+  margin-top: 20px
 }
 
 #dice {
@@ -84,9 +102,7 @@ body {
 #dicebox {
   height: 150px;
   width: 300px;
-  margin-top: 80px;
-  margin-left: -110px;
-
+  margin-top: 20px;
 }
 
 #rolldice {
@@ -95,11 +111,13 @@ body {
   background-color: magenta;
   border: 1px solid white;
 }
+
 #boatA, #boatB {
-  height: 60px;
-  width: 80px;
+  height: 90px;
+  width: 90px;
   border: 1px solid white;
   margin: 0 auto;
+  padding: 0px;
 }
 
 #playerAmoves {
@@ -151,7 +169,7 @@ td {
   position: relative;
   width: 749px;
   height: 697px;
-  border: 8px dotted rgba(255,255,255,0.7)
+  border: 10px dotted rgba(255,255,255,0.7)
 }
 
 #reset {
@@ -159,7 +177,10 @@ td {
   width: 200px;
   background-color: yellow;
   border: 1px solid white;
-  margin: 20px 0px 0px -58px;
+  margin: 0 auto;
+  position: absolute;
+  top: 675px;
+  left: 50px;
 }
 
 

@@ -7,15 +7,15 @@ var face3=new Image()
 face3.src="images/dice/d3.gif";
 var face4=new Image()
 face4.src="images/dice/d4.gif";
-var face5=new Image()
-face5.src="images/dice/d5.gif"
-var face6=new Image()
-face6.src="images/dice/d6.gif";
+// var face5=new Image()
+// face5.src="images/dice/d5.gif"
+// var face6=new Image()
+// face6.src="images/dice/d6.gif";
 
 var displaymoveA = document.getElementById('playerAmoves');
 var displaymoveB = document.getElementById('playerBmoves')
 var counter = 0;
-var randomDice = Math.floor(Math.random()*6+1);
+var randomDice = Math.floor(Math.random()*4+1);
 
 //switch sprites after each click / click called in html
 function throwdice(countmovesA) { //create 0-5
@@ -84,9 +84,6 @@ function movespriteA(event) {
   grabCoin();
   countmovesA();
   resetA();
-  console.log(woodA + 'wood');
-  console.log(coinA + 'coinA');
-  displayPicture();
 }
 
 
@@ -137,6 +134,8 @@ function movespriteB(event) {
   grabCoin();
   countmovesB();
   resetB();
+  console.log(woodA + 'wood');
+  console.log(coinA + 'coinA');
 }
 
 //stop moves for B
@@ -254,7 +253,7 @@ function grabWood() {
 
 
    if (((leftW < leftA) && (leftA < (leftW + 50)) && (topW < topA) && (topA < (topW + 50))) && (document.getElementById(woodiconS[i]).innerHTML = '<img src="images/map/woodicon.gif">')) {
-        $('#woodcountA').html('Wood x ' + woodA);
+        $('#woodcountA').html('Wood x' + woodA);
          woodA++;
    }
 
@@ -272,15 +271,8 @@ function grabWood() {
    }
 
   }
-
 }
-//display picture in scoreboard!
-function displayPicture() {
 
-  if (document.getElementById('woodcountA').innerHTML === 'Wood x 2') {
-    document.getElementById('boatA').innerHTML = '<img src="images/map/woodicon.gif">';
-  }
-}
 
 //Insert Random Coins
 function randomCoinB() {
@@ -323,8 +315,8 @@ function randomCoinM() {
 
 var coinicons = ['#coin1', '#coin2', '#coin3', '#coin4', '#coin5', '#coin6'];
 var coiniconS = ['coin1', 'coin2', 'coin3', 'coin4', 'coin5', 'coin6']
-var coinA = 1;
-var coinB = 1;
+var coinA = 0;
+var coinB = 0;
 
 function grabCoin() {
 
@@ -334,6 +326,7 @@ function grabCoin() {
 
 
    if (((leftC < leftA) && (leftA < (leftC + 50)) && (topC < topA) && (topA < (topC + 50))) && (document.getElementById(coiniconS[i]).innerHTML = '<img src="images/map/coinicon.gif">')) {
+         coinA = 1;
         $('#coincountA').html('Coin x ' + coinA);
          coinA++;
    }
@@ -343,7 +336,7 @@ function grabCoin() {
    }
 
    if (((leftC < leftB) && (leftB < (leftC + 50)) && (topC < topB) && (topB < (topC + 50))) && (document.getElementById(coiniconS[i]).innerHTML = '<img src="images/map/coinicon.gif">')) {
-
+         coinB = 1;
         $('#coincountB').html('Coin x ' + coinB);
          coinB++;
    }
@@ -357,6 +350,10 @@ function grabCoin() {
 }
 
   //change coin count if position is on square where coins are AND it is empty//call in keymovement
+
+
+
+
 //place trading posts
 document.getElementById('D4').innerHTML = '<img src="images/map/palm_tree.gif">';
 document.getElementById('K12').innerHTML = '<img src="images/map/palm_tree.gif">'
@@ -378,6 +375,5 @@ randomCoinF2();
 randomCoinG();
 randomCoinJ();
 randomCoinM();
-console.log(woodA)
 
 
