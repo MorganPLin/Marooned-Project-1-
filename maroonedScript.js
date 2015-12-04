@@ -84,12 +84,11 @@ function movespriteA(event) {
   grabCoin();
   countmovesA();
   resetA();
-  console.log(woodA + 'wood');
-  console.log(coinA + 'coinA');
   displayPicture();
   keepDry();
   swimming();
   dryLand();
+  alertWin();
 }
 
 
@@ -144,6 +143,7 @@ function movespriteB(event) {
   keepDry();
   swimming();
   dryLand();
+  alertWin();
 }
 
 //stop moves for B
@@ -530,6 +530,47 @@ function grabCoin() {
 
 }
 
+//set Win condition
+//modal overlay
+function overlayA() {
+  var A = document.getElementById("overlayA");
+  A.style.visibility = (A.style.visibility == "visible") ? "hidden" : "visible";
+}
+
+function overlayB() {
+  var B = document.getElementById("overlayB");
+  B.style.visibility = (B.style.visibility == "visible") ? "hidden" : "visible";
+}
+
+var tradingposts = ['#D4', '#K12'];
+
+function alertWin() {
+  for (var i = 0; i < 2; i++) {
+
+  var leftH = $(tradingposts[i]).position().left;
+  var topH = $(tradingposts[i]).position().top;
+
+//if in water square and wood count is 2, then change picture to swimming in raft
+    if (((leftH < leftA) && (leftA < (leftH + 50)) && (topH < topA) && (topA < (topH + 50))) &&
+      (document.getElementById('coincountA').innerHTML === 'Coin x 2')) {
+          document.getElementById('coincountA').innerHTML = 'Coin x 0';
+          document.getElementById('sailA').innerHTML = 'Sail x 1';
+          overlayA();
+    }
+
+    if (((leftH < leftB) && (leftB < (leftH + 50)) && (topH < topB) && (topB < (topH + 50))) &&
+      (document.getElementById('coincountB').innerHTML === 'Coin x 2')) {
+          document.getElementById('coincountB').innerHTML = 'Coin x 0';
+          document.getElementById('sailB').innerHTML = 'Sail x 1';
+          overlayB();
+    }
+
+  }
+
+}
+
+
+
 //trading posts
 document.getElementById('D4').innerHTML = '<img src="images/map/palm_tree.gif">';
 document.getElementById('K12').innerHTML = '<img src="images/map/palm_tree.gif">'
@@ -539,6 +580,8 @@ resetbutton.addEventListener ("click", function() {
   document.location.reload(true);
 
 })
+
+
 
 assignWaterClass();
 assignLandClass();
