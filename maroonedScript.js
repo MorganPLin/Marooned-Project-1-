@@ -555,6 +555,7 @@ function alertWin() {
       (document.getElementById('coincountA').innerHTML === 'Coin x 2')) {
           document.getElementById('coincountA').innerHTML = 'Coin x 0';
           document.getElementById('sailA').innerHTML = 'Sail x 1';
+          document.getElementById('boatA').innerHTML = '<img src="images/characters/Sprite_BoatA.gif">';
           overlayA();
     }
 
@@ -562,6 +563,7 @@ function alertWin() {
       (document.getElementById('coincountB').innerHTML === 'Coin x 2')) {
           document.getElementById('coincountB').innerHTML = 'Coin x 0';
           document.getElementById('sailB').innerHTML = 'Sail x 1';
+          document.getElementById('boatB').innerHTML = '<img src="images/characters/Sprite_BoatB.gif">';
           overlayB();
     }
 
