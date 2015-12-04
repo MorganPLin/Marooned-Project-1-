@@ -25,7 +25,7 @@ body {
   left: 60px;
   width: 30px;
   height: 30px;
-  background: url('Images/characters/Sprite_Boy_LightBrownHair.gif') no-repeat;
+  background: url('images/characters/Sprite_Boy_LightBrownHair.gif') no-repeat;
 }
 
 #woodcountA, #woodcountB {
@@ -70,7 +70,7 @@ body {
   left: 111px;
   width: 30px;
   height: 30px;
-  background: url('Images/characters/Sprite_Boy_Blackhair.gif') no-repeat;
+  background: url('images/characters/Sprite_Boy_Blackhair.gif') no-repeat;
 }
 
 .rightGrid {
