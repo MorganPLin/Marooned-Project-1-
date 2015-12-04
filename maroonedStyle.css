@@ -61,6 +61,7 @@ body {
   width: 108px;
   border: 1px solid red;
   float: right;
+  margin: 8px;
 }
 
 #spriteB {
@@ -75,7 +76,7 @@ body {
 .rightGrid {
   width: 300px;
 /*  height: 697px;*/
-  height: 618px;
+  height: 602px;
   margin-left: 100px;
   float: right;
   color: white;
@@ -86,21 +87,35 @@ body {
   position: relative;
 }
 
+.displayname {
+  height: 35px;
+  padding: 6px;
+  color: white;
+}
+
+/*#nameA {
+  color: pink;
+}
+
+#nameB {
+  color: teal;
+}*/
+
 #playerA {
   height: 193px;
-  width: 292px;
-  margin-top: 2px;
+  width: 294px;
+  margin-left: 2px;
 }
 
 #playerB {
   height: 193px;
-  width: 292px;
-  margin: 0 auto;
+  width: 294px;
+  margin-left: 2px;
 }
 
 #dice {
   background-color: white;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 #dicebox {
@@ -119,9 +134,17 @@ body {
   height: 90px;
   width: 90px;
   border: 1px solid white;
-  margin: 0 auto;
+  margin: 15px 0px 0px 22px;
   padding: 0px;
   float: left;
+}
+
+#boatA {
+  border: 1px solid pink;
+}
+
+#boatB {
+  border: 1px solid teal;
 }
 
 p {
@@ -130,10 +153,15 @@ p {
 
 #playerAmoves {
   color: tan;
+  border: 3px solid rgba(255, 255, 255,0.5);
+  width: 293px;
 }
 
 #playerBmoves {
   color: tan;
+  width: 292px;
+  border: 3px solid rgba(255, 255, 255,0.5);
+  margin-left: -6px;
 }
 
 table {
@@ -182,7 +210,7 @@ td {
   border: 1px solid white;
   margin: 0 auto;
   position: absolute;
-  top: 675px;
+  top: 640px;
   left: 50px;
 }
 

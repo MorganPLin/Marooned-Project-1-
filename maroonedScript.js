@@ -314,10 +314,8 @@ function keepDry() {
 
 }
 
-//Insert random Wood/Coin in specific rows
+//Insert random Wood/Coin in specific areas
 function randomWoodA() {
-  // var randomrow= Math.floor(Math.random()*5+1); //pick rows 1-5
-  // var row = ['C', 'D', 'E', 'F', 'G'];
   var column = Math.floor(Math.random()*13+2);
   document.getElementById('A' + column).innerHTML ='<img src="images/map/woodicon.gif">';
   document.getElementById('A' + column).setAttribute('class','wood1');
@@ -411,33 +409,38 @@ function randomCoinB() {
 }
 
 function randomCoinF1() {
-  var column = Math.floor(Math.random()*7+2);
-  document.getElementById('F' + column).innerHTML ='<img src="images/map/coinicon.gif">';
-  document.getElementById('F' + column).setAttribute('class','coin2');
+  var leftTop = ['D2', 'D3', 'D5', 'C5', 'E2', 'E3', 'E4', 'F2', 'F3', 'F4']
+  var random = Math.floor(Math.random()*10);
+  document.getElementById(leftTop[random]).innerHTML ='<img src="images/map/coinicon.gif">';
+  document.getElementById(leftTop[random]).setAttribute('class','coin2');
 }
 
 function randomCoinF2() {
-  var column = Math.floor(Math.random()*6+9);
-  document.getElementById('F' + column).innerHTML ='<img src="images/map/coinicon.gif">';
-  document.getElementById('F' + column).setAttribute('class','coin3');
+  var rightTop = ['D14', 'D13', 'D11', 'C11', 'E14', 'E13', 'E12', 'F14', 'F13', 'F12']
+  var random = Math.floor(Math.random()*10);
+  document.getElementById(rightTop[random]).innerHTML ='<img src="images/map/coinicon.gif">';
+  document.getElementById(rightTop[random]).setAttribute('class','coin3');
 }
 
-function randomCoinG() {
-  var column = Math.floor(Math.random()*13+2);
-  document.getElementById('G' + column).innerHTML ='<img src="images/map/coinicon.gif">';
-  document.getElementById('G' + column).setAttribute('class','coin4');
+function randomCoinI() {
+  var column = [2, 3, 4, 5, 11, 12, 13, 14]
+  var random = Math.floor(Math.random()*9);
+  document.getElementById('I' + column[random]).innerHTML ='<img src="images/map/coinicon.gif">';
+  document.getElementById('I' + column[random]).setAttribute('class','coin4');
 }
 
-function randomCoinJ() {
-  var column = Math.floor(Math.random()*13+2);
-  document.getElementById('J' + column).innerHTML ='<img src="images/map/coinicon.gif">';
-  document.getElementById('J' + column).setAttribute('class','coin5');
+function randomCoinK() {
+  var rowK = ['K2', 'K3', 'K5', 'K7', 'K9', 'K11', 'L6', 'L9', 'L10', 'L11']
+  var random = Math.floor(Math.random()*10);
+  document.getElementById(rowK[random]).innerHTML ='<img src="images/map/coinicon.gif">';
+  document.getElementById(rowK[random]).setAttribute('class','coin5');
 }
 
 function randomCoinM() {
-  var column = Math.floor(Math.random()*10+4);
-  document.getElementById('M' + column).innerHTML ='<img src="images/map/coinicon.gif">';
-  document.getElementById('M' + column).setAttribute('class','coin6');
+  var rowM = ['M2', 'M4', 'M5', 'M6', 'M7', 'M9', 'M10', 'M11', 'M14']
+  var random = Math.floor(Math.random()*9);
+  document.getElementById(rowM[random]).innerHTML ='<img src="images/map/coinicon.gif">';
+  document.getElementById(rowM[random]).setAttribute('class','coin6');
 }
 
 //grabCoin and count coins for A and B
@@ -477,40 +480,7 @@ function grabCoin() {
 
 }
 
-// function grabCoin() {
-
-//   for (var i = 0; i < 6; i++) {
-//   var leftC = $(coinicons[i]).position().left;
-//   var topC = $(coinicons[i]).position().top;
-
-
-//    if (((leftC < leftA) && (leftA < (leftC + 50)) && (topC < topA) && (topA < (topC + 50))) &&
-//     $(coinicons[i]).html('<img src="images/map/coinicon.gif">')) {
-//         $(coinicons[i]).html('Coin x ' + coinA);
-//          coinA++;
-//    }
-
-//    if ((leftC < leftA) && (leftA < (leftC + 50)) && (topC < topA) && (topA < (topC + 50))) {
-//     $(coinicons[i]).html('');
-//    }
-
-//    if (((leftC < leftB) && (leftB < (leftC + 50)) && (topC < topB) && (topB < (topC + 50))) &&
-//     ($(coinicons[i]).html('<img src="images/map/coinicon.gif">'))) {
-
-//         $('#coincountB').html('Coin x ' + coinB);
-//          coinB++;
-//    }
-
-//    if ((leftC < leftB) && (leftB < (leftC + 50)) && (topC < topB) && (topB < (topC + 50))) {
-//     $(coinicons[i]).html('');
-//     }
-
-//    }
-
-// }
-
-  //change coin count if position is on square where coins are AND it is empty//call in keymovement
-//place trading posts
+//trading posts
 document.getElementById('D4').innerHTML = '<img src="images/map/palm_tree.gif">';
 document.getElementById('K12').innerHTML = '<img src="images/map/palm_tree.gif">'
 
@@ -531,10 +501,9 @@ randomWoodcorner();
 randomCoinB();
 randomCoinF1();
 randomCoinF2();
-randomCoinG();
-randomCoinJ();
+randomCoinI();
+randomCoinK();
 randomCoinM();
-console.log(woodA);
 
 
 
