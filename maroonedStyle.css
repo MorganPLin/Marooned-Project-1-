@@ -50,10 +50,17 @@ body {
   float: right;
 }
 
+#sailA, #sailB {
+  font-family: Arial;
+  font-size: 22px;
+  color: white;
+}
+
 .pointbox {
   height: 100px;
   width: 108px;
   border: 1px solid red;
+  float: right;
 }
 
 #spriteB {
@@ -68,7 +75,7 @@ body {
 .rightGrid {
   width: 300px;
 /*  height: 697px;*/
-  height: 650px;
+  height: 618px;
   margin-left: 100px;
   float: right;
   color: white;
@@ -80,18 +87,15 @@ body {
 }
 
 #playerA {
-  height: 200px;
+  height: 193px;
   width: 292px;
-  margin-top: 0px;
-  border: 1px solid pink;
+  margin-top: 2px;
 }
 
 #playerB {
-  height: 200px;
+  height: 193px;
   width: 292px;
   margin: 0 auto;
-  border: 1px solid teal;
-  margin-top: 20px
 }
 
 #dice {
@@ -100,9 +104,8 @@ body {
 }
 
 #dicebox {
-  height: 150px;
-  width: 300px;
-  margin-top: 20px;
+  height: 210px;
+  width: 298px;
 }
 
 #rolldice {
@@ -118,6 +121,11 @@ body {
   border: 1px solid white;
   margin: 0 auto;
   padding: 0px;
+  float: left;
+}
+
+p {
+  margin-bottom: 9px;
 }
 
 #playerAmoves {
@@ -135,17 +143,12 @@ table {
   border: 1px dotted white;
 }
 
-
 table, tr, td {
   border: 1px solid white;
   border-spacing: 0px;
+}
 /*  background-color: #E9C771;*/
-  background-color: #57D4F4;;
-}
-
-.water, #B2, #B14, #M2, #M14 {
-  background-color: #57D4F4;
-}
+/*  background-color: #57D4F4; /*water color */
 
 #D4, #I8, #G14, #B8, #C12, #B4, #C14, #G8, #J5, #C6 {
   padding: 0px;
@@ -157,13 +160,13 @@ td {
   padding: 0px;
 }
 
-#B3, #B13, #M3, #M13, #C2, #C3, #C13, #C14, #L2, #L3, #L13, #L14, #D4, #D6, #D7, #D8,
-#D9, #D10, #D12, #E5, #E6, #E7, #E8, #E9, #E10, #E11, #F5, #F8, #F11, #G5, #G7, #G8,
-#G9, #G11, #H5, #H6, #H7, #H9, #H10, #H11, #I6, #I7, #I8, #I9, #I10, #J5, #J6, #J7, #J8,
-#J9, #J10, #J11, #K4, #K6, #K8, #K10, #K12 {
-  background-color: #E6D4AC;
+.land {
+   background-color: #E6D4AC;
 }
 
+.water {
+  background-color: #57D4F4;
+}
 
 #mapspace {
   position: relative;
@@ -183,6 +186,13 @@ td {
   left: 50px;
 }
 
+.wood1, .wood2, .wood3, .wood4, .wood5, .wood6 {
+     background-color: #E6D4AC;
+}
+
+.coinicon1, .coinicon2, .coinicon3, .coinicon4, .coinicon5, .coinicon6 {
+     background-color: #E6D4AC;
+}
 
 
 

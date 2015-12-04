@@ -25,14 +25,14 @@ function throwdice(countmovesA) { //create 0-5
  if (counter % 2 === 0) {
     displaymoveA.innerHTML= "Move " + randomDice + " spots";
     document.onkeydown = movespriteA;
-    document.getElementById('playerA').style.border = "5px solid rgba(255,255,255,0.7)";
+    document.getElementById('playerA').style.border = "2px solid pink";
     document.getElementById('playerB').style.border = "none";
   }
 
  if (counter % 2 === 1) {
     displaymoveB.innerHTML= "Move " + randomDice + " spots";
     document.onkeydown = movespriteB;
-    document.getElementById('playerB').style.border = "5px solid rgba(255,255,255,0.7)"
+    document.getElementById('playerB').style.border = "2px solid teal"
     document.getElementById('playerA').style.border = "none";
     }
     counter ++;
@@ -87,6 +87,7 @@ function movespriteA(event) {
   console.log(woodA + 'wood');
   console.log(coinA + 'coinA');
   displayPicture();
+  // keepDry();
 }
 
 
@@ -137,6 +138,7 @@ function movespriteB(event) {
   grabCoin();
   countmovesB();
   resetB();
+  displayPicture();
 }
 
 //stop moves for B
@@ -185,10 +187,10 @@ for (var i = 0; i < 14; i++) {
   for (var j = 0; j < 15; j++) {
     var cell = document.createElement('td');
     if (i === 0 || i === 13) {
-      cell.setAttribute("class", "water")
+      cell.setAttribute("class", "perimeter")
     }
     if (j === 0 || j === 14) {
-      cell.setAttribute("class", "water")
+      cell.setAttribute("class", "perimeter")
     }
     // if ((i === 1 && j === 1) || (i === 12 && i === 14)) {
     //   cell.setAttribute("class", "water")
@@ -207,36 +209,162 @@ tbl.setAttribute("border", "1");
 tbl.setAttribute('border-style', 'solid');
 tbl.setAttribute('id','map');
 
+//set class landtiles
+var landtilesQ = ['#B3', '#B13', '#M3', '#M13', '#C2', '#C3', '#C13', '#C14', '#L2', '#L3',
+'#L13', '#L14', '#D4', '#D6', '#D7', '#D8', '#D9', '#D10', '#D12', '#E5', '#E6', '#E7', '#E8',
+'#E9', '#E10', '#E11', '#F5', '#F8', '#F11', '#G5', '#G7', '#G8',
+'#G9', '#G11', '#G12', '#H5', '#H6', '#H7', '#H9', '#H10', '#H11', '#I6', '#I7', '#I8', '#I9',
+'#I10', '#J5', '#J6', '#J7', '#J8', '#J9', '#J10', '#J11', '#K4', '#K6', '#K8', '#K10', '#K12',
+'#G2', '#G3', '#G4', '#G14', '#B8', '#C8', '#L8', '#M8', '#A1', '#A2', '#A3', '#A4', '#A5',
+'#A6', '#A7', '#A8', '#A9', '#A10', '#A11', '#A12', '#A13', '#A14', '#A15', '#B1', '#B15',
+'#C1', '#C15', '#D1', '#D15', '#E1', '#E15', '#F1', '#F15', '#G1', '#G15', '#H1', '#H15', '#I1',
+'#I15', '#J1', '#J15', '#K1', '#K15', '#L1', '#L15', '#M1', '#M15', '#N1', '#N2', '#N3', '#N4',
+'#N5', '#N6', '#N7', '#N8', '#N9', '#N10', '#N11', '#N12', '#N13', '#N14', '#N15', '#G13'];
+
+var watertiles = ['#B2', '#B4', '#B5', '#B6', '#B7', '#B9', '#B10', '#B11', '#B12', '#B14', //10
+'#C4', '#C5', '#C6', '#C7','#C9', '#C10', '#C11', '#C12', '#D2', '#D3', '#D5', '#D11', '#D13', //13
+'#D14', '#E2', '#E3', '#E4', '#E12', '#E13', '#E14', '#F2', '#F3', '#F4', '#F6', //11
+'#F7', '#F9', '#F10', '#F12', '#F13', '#F14', '#G6', '#G10', '#H2', '#H3', '#H4', '#H8', '#H12', //13
+'#H13', '#H14', '#I2', '#I3', '#I4', '#I5', '#I11', '#I12', '#I13', //9
+'#I14', '#J2', '#J3', '#J4', '#J12', '#J13', '#J14', '#K2', '#K3', '#K5', '#K7', '#K9', '#K11', //13
+'#K13', '#K14', '#L4', '#L5', '#L6', '#L7', '#L9', //7
+'#L10', '#L11', '#L12', '#M2', '#M4', '#M5', '#M6', '#M7', '#M9', '#M10', '#M11', '#M12', '#M14']; //13
+
+function assignLandClass() {
+  for (var i = 0; i < 121; i++) {
+    $(landtilesQ[i]).addClass("land");
+  }
+}
+
+
+function assignWaterClass() {
+  for (var i = 0; i < 89; i++) {
+    $(watertiles[i]).addClass("water");
+  }
+}
+
+// if Sprites position on water and (wood x1) || (woodx 0), then reverse pixels
+// function keepDry() {
+
+// var watertiles = ['#B2', '#B4', '#B5', '#B6', '#B7', '#B9', '#B10', '#B11', '#B12', '#B14', //10
+// '#C4', '#C5', '#C6', '#C7','#C9', '#C10', '#C11', '#C12', '#D2', '#D3', '#D5', '#D11', '#D13', //13
+// '#D14', '#E2', '#E3', '#E4', '#E12', '#E13', '#E14', '#F2', '#F3', '#F4', '#F6', //11
+// '#F7', '#F9', '#F10', '#F12', '#F13', '#F14', '#G6', '#G10', '#H2', '#H3', '#H4', '#H8', '#H12', //13
+// '#H13', '#H14', '#I2', '#I3', '#I4', '#I5', '#I11', '#I12', '#I13', //9
+// '#I14', '#J2', '#J3', '#J4', '#J12', '#J13', '#J14', '#K2', '#K3', '#K5', '#K7', '#K9', '#K11', //13
+// '#K13', '#K14', '#L4', '#L5', '#L6', '#L7', '#L9', //7
+// '#L10', '#L11', '#L12', '#M2', '#M4', '#M5', '#M6', '#M7', '#M9', '#M10', '#M11', '#M12', '#M14'];
+// //13
+
+// var watertileS = ['#B2']
+
+//   for (var i = 0; i < ; i++) {
+//   var leftH = $(watertileS[i]).position().left;
+//   var topH = $(watertileS[i]).position().top;
+
+
+// //if in water square and wood count is 0 or 1, then reverse pixels
+//    if (((leftH < leftA) && (leftA < (leftH + 50)) && (topH < topA) && (topA < (topH + 50))) &&
+//       ((document.getElementById('woodcountA').innerHTML === 'Wood x 0') ||
+//        (document.getElementById('woodcountA').innerHTML === 'Wood x 1'))) {
+
+//                     if (event.keyCode == 37) {
+//                     leftA += 50;
+//                     spriteA.style.left = leftA + "px";
+//                     }
+
+//                   //up
+//                     if (event.keyCode == 38) {
+//                     topA += 50;
+//                     spriteA.style.top = topA + "px";
+//                     }
+
+//                   //right
+//                     if (event.keyCode == 39) {
+//                     leftA -= 50;
+//                     spriteA.style.left = leftA + "px";
+//                     }
+
+
+//                   //up
+//                     if (event.keyCode == 40) {
+//                     topA -= 50;
+//                     spriteA.style.top = topA + "px";
+//                     }
+//     }
+
+//     if (((leftH < leftB) && (leftB < (leftH + 50)) && (topH < topB) && (topB < (topH + 50))) &&
+//       ((document.getElementById('woodcountB').innerHTML === 'Wood x 0') ||
+//        (document.getElementById('woodcountB').innerHTML === 'Wood x 1'))) {
+
+//                     if (event.keyCode == 37) {
+//                     leftB += 50;
+//                     spriteB.style.left = leftA + "px";
+//                     }
+
+//                   //up
+//                     if (event.keyCode == 38) {
+//                     topB += 50;
+//                     spriteB.style.top = topA + "px";
+//                     }
+
+//                   //right
+//                     if (event.keyCode == 39) {
+//                     leftB -= 50;
+//                     spriteB.style.left = leftA + "px";
+//                     }
+
+
+//                   //up
+//                     if (event.keyCode == 40) {
+//                     topB -= 50;
+//                     spriteB.style.top = topA + "px";
+//                     }
+//     }
+
+//   }
+
+// }
 
 //Insert random Wood/Coin in specific rows
-function randomWoodC() {
+function randomWoodA() {
   // var randomrow= Math.floor(Math.random()*5+1); //pick rows 1-5
   // var row = ['C', 'D', 'E', 'F', 'G'];
   var column = Math.floor(Math.random()*13+2);
-  document.getElementById('C' + column).innerHTML ='<img src="images/map/woodicon.gif">';
-  document.getElementById('C' + column).setAttribute('id','wood1');
+  document.getElementById('A' + column).innerHTML ='<img src="images/map/woodicon.gif">';
+  document.getElementById('A' + column).setAttribute('id','wood1');
+}
+
+function randomWoodN() {
+  var column = Math.floor(Math.random()*13+2);
+  document.getElementById('N' + column).innerHTML ='<img src="images/map/woodicon.gif">';
+  document.getElementById('N' + column).setAttribute('id','wood1');
 }
 
 function randomWoodE() {
-  var column = Math.floor(Math.random()*13+2);
+  var column = Math.floor(Math.random()*7+5);
   document.getElementById('E' + column).innerHTML ='<img src="images/map/woodicon.gif">';
   document.getElementById('E' + column).setAttribute('id','wood2');
 }
 
-function randomWoodH() {
-  var column = Math.floor(Math.random()*13+2);
-  document.getElementById('H' + column).innerHTML ='<img src="images/map/woodicon.gif">';
-  document.getElementById('H' + column).setAttribute('id','wood3');
+function randomwood3() {
+  var tile = Math.floor(Math.random()*10);
+  var randomWood3 = ['G2', 'G4', 'G5', 'G7', 'G8', 'G9', 'G11', 'G12', 'G13', 'G14'];
+  document.getElementById(randomWood3[tile]).innerHTML = '<img src="images/map/woodicon.gif">';
+  document.getElementById(randomWood3[tile]).setAttribute('id','wood3');
+
 }
-function randomWoodI() {
-  var column = Math.floor(Math.random()*13+2);
-  document.getElementById('I' + column).innerHTML ='<img src="images/map/woodicon.gif">';
-  document.getElementById('I' + column).setAttribute('id','wood4');
+
+function randomWoodJ() {
+  var column = Math.floor(Math.random()*7+5);
+  document.getElementById('J' + column).innerHTML ='<img src="images/map/woodicon.gif">';
+  document.getElementById('J' + column).setAttribute('id','wood4');
 }
-function randomWoodL() {
-  var column = Math.floor(Math.random()*11+4);
-  document.getElementById('L' + column).innerHTML ='<img src="images/map/woodicon.gif">';
-  document.getElementById('L' + column).setAttribute('id','wood5');
+function randomWoodcorner() {
+  var newtile = Math.floor(Math.random()*4);
+  var islandtiles = ['C3', 'D12', 'L13', 'K4']
+  document.getElementById(islandtiles[newtile]).innerHTML ='<img src="images/map/woodicon.gif">';
+  document.getElementById(islandtiles[newtile]).setAttribute('id','wood5');
 }
 
 //function makes wood disappear and count wood
@@ -278,15 +406,20 @@ function grabWood() {
 function displayPicture() {
 
   if (document.getElementById('woodcountA').innerHTML === 'Wood x 2') {
-    document.getElementById('boatA').innerHTML = '<img src="images/map/woodicon.gif">';
+    document.getElementById('boatA').innerHTML = '<img src="images/characters/Sprite_LightBrownHair_Raft.gif">';
+  }
+
+  if (document.getElementById('woodcountB').innerHTML === 'Wood x 2') {
+    document.getElementById('boatB').innerHTML = '<img src="images/characters/Sprite_BlackHair_Raft.gif">';
   }
 }
 
 //Insert Random Coins
 function randomCoinB() {
-  var column = Math.floor(Math.random()*11+3);
-  document.getElementById('B' + column).innerHTML ='<img src="images/map/coinicon.gif">';
-  document.getElementById('B' + column).setAttribute('id','coin1');
+  var rowB = ['B2', 'B4', 'B5', 'B6', 'B7', 'B9', 'B10', 'B11', 'B12', 'B14']
+  var tile = Math.floor(Math.random()*10);
+  document.getElementById(rowB[tile]).innerHTML ='<img src="images/map/coinicon.gif">';
+  document.getElementById(rowB[tile]).setAttribute('id','coin1');
 }
 
 function randomCoinF1() {
@@ -367,17 +500,21 @@ resetbutton.addEventListener ("click", function() {
 
 })
 
-randomWoodC();
+assignWaterClass();
+assignLandClass();
+randomWoodA();
+randomWoodN();
 randomWoodE();
-randomWoodH();
-randomWoodI();
-randomWoodL();
+randomwood3();
+randomWoodJ();
+randomWoodcorner();
 randomCoinB();
 randomCoinF1();
 randomCoinF2();
 randomCoinG();
 randomCoinJ();
 randomCoinM();
-console.log(woodA)
+console.log(woodA);
+
 
 
