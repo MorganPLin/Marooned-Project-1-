@@ -19,7 +19,7 @@ var randomDice = Math.floor(Math.random()*6+1);
 
 //switch sprites after each click / click called in html
 function throwdice(countmovesA) { //create 0-5
-  randomDice = Math.floor(Math.random()*4+1);
+  randomDice = Math.floor(Math.random()*6+1);
   document.images['dice'].src = eval("face" + randomDice + ".src");
 
  if (counter % 2 === 0) {
@@ -88,6 +88,8 @@ function movespriteA(event) {
   console.log(coinA + 'coinA');
   displayPicture();
   keepDry();
+  swimming();
+  dryLand();
 }
 
 
@@ -140,6 +142,8 @@ function movespriteB(event) {
   resetB();
   displayPicture();
   keepDry();
+  swimming();
+  dryLand();
 }
 
 //stop moves for B
@@ -187,16 +191,15 @@ for (var i = 0; i < 14; i++) {
 
   for (var j = 0; j < 15; j++) {
     var cell = document.createElement('td');
-    if (i === 0 || i === 13) {
-      cell.setAttribute("class", "perimeter")
-    }
-    if (j === 0 || j === 14) {
-      cell.setAttribute("class", "perimeter")
-    }
+    // if (i === 0 || i === 13) {
+    //   cell.setAttribute("class", "perimeter")
+    // // }
+    // if (j === 0 || j === 14) {
+    //   cell.setAttribute("class", "perimeter")
+    // }
     // if ((i === 1 && j === 1) || (i === 12 && i === 14)) {
     //   cell.setAttribute("class", "water")
     // }
-
     row.appendChild(cell);
     cell.setAttribute("id", rowletter[i] + [j+1]);
   }
@@ -314,6 +317,53 @@ function keepDry() {
 
 }
 
+function swimming() {
+
+  for (var i = 0; i < 89; i++) {
+  var leftH = $(watertiles[i]).position().left;
+  var topH = $(watertiles[i]).position().top;
+
+
+//if in water square and wood count is 2, then change picture to swimming in raft
+    if (((leftH < leftA) && (leftA < (leftH + 50)) && (topH < topA) && (topA < (topH + 50))) &&
+      (document.getElementById('woodcountA').innerHTML === 'Wood x 2')) {
+           document.getElementById('spriteA').style.backgroundImage = "url('images/characters/Aswimming2.gif')";
+    }
+
+    if (((leftH < leftB) && (leftB < (leftH + 50)) && (topH < topB) && (topB < (topH + 50))) &&
+      (document.getElementById('woodcountB').innerHTML === 'Wood x 2')) {
+          document.getElementById('spriteA').style.backgroundImage = "url('images/characters/Bswimming2.gif')";
+    }
+
+  }
+
+}
+
+function dryLand() {
+
+
+  for (var i = 0; i < 89; i++) {
+  var leftH = $(landtilesQ[i]).position().left;
+  var topH = $(landtilesQ[i]).position().top;
+
+
+//if in water square and wood count is 2, then change picture to swimming in raft
+    if (((leftH < leftA) && (leftA < (leftH + 50)) && (topH < topA) && (topA < (topH + 50))) &&
+      ((document.getElementById('woodcountA').innerHTML === 'Wood x 2') ||
+       (document.getElementById('woodcountA').innerHTML === 'Wood x 3')))  {
+           document.getElementById('spriteA').style.backgroundImage = "url('images/characters/Sprite_Boy_LightBrownHair.gif')";
+    }
+
+    if (((leftH < leftB) && (leftB < (leftH + 50)) && (topH < topB) && (topB < (topH + 50))) &&
+      ((document.getElementById('woodcountB').innerHTML === 'Wood x 2') ||
+       (document.getElementById('woodcountB').innerHTML === 'Wood x 3')))  {
+          document.getElementById('spriteA').style.backgroundImage = "url('images/characters/Sprite_Boy_Blackhair.gif')";
+    }
+
+  }
+
+}
+
 //Insert random Wood/Coin in specific areas
 function randomWoodA() {
   var column = Math.floor(Math.random()*13+2);
@@ -423,8 +473,8 @@ function randomCoinF2() {
 }
 
 function randomCoinI() {
-  var column = [2, 3, 4, 5, 11, 12, 13, 14]
-  var random = Math.floor(Math.random()*9);
+  var column = ['2', '3', '4', '5', '11', '12', '13', '14']
+  var random = Math.floor(Math.random()*8);
   document.getElementById('I' + column[random]).innerHTML ='<img src="images/map/coinicon.gif">';
   document.getElementById('I' + column[random]).setAttribute('class','coin4');
 }
