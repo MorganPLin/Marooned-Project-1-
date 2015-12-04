@@ -27,3 +27,9 @@ Press the reset button at any time to restart the game and rearrange the icons.
 LINK TO THE GAME: http://morganplin.github.io/Marooned-Project-1-/
 
 Good luck!
+_____________________________________________________________________________________________________________________
+
+#TRELLO LINK
+
+https://trello.com/b/hkql75vE/marooned-project-1
+_____________________________________________________________________________________________________________________
