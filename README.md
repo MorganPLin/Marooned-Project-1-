@@ -34,4 +34,17 @@ ________________________________________________________________________________
 https://trello.com/b/hkql75vE/marooned-project-1
 _____________________________________________________________________________________________________________________
 
+#PROCESS
+
+After working out some user stories on Trello, I decided to graph the board grid using a table. To get the tile to "speak" to the sprites, I set an interval for the position of each space on the square, and checked whether the sprite was positioned within this interval. 
+
+To "grab" items, DOM manipulation was used. I simply changed the 
+
+To randomize items, I randomly selected coin or wood icons in a specified array. 
+
+To restrict the player's movements, I created a function which looped through water tiles and check whether the sprite was on them. Some challenges I ran into included checking IDs in loops. Separate classes were applied for land and water; however, I had assigned a class to the randomized coin and wood icons A bug I need to work on is 
+
+In progress: I am currently working on a rules sheet to be displayed on the page menu. 
+
+
 
