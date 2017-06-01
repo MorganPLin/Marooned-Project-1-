@@ -1,35 +1,258 @@
 header {
-  font-size: 50px;
-  color: white;
-  text-align: center;
-  padding-top: 30px;
-  margin: auto;
-  font-family: Times New Roman;
+  height: 270px;
+  width: 600px;
+  margin: 0 auto;
+}
+
+#title {
+  max-width: 600px;
 }
 
 body {
-  background-color: maroon;
+  background-color: black;
 }
-
-.main {
+.content {
+  width: 1200px;
   height: 100%;
-  width: 600px;
-  margin-left: 70px;
-  margin-top: 30px;
-  margin-left: 70px
+  margin: 0 auto;
+  display: flex;
+
 }
 
-#map {
-  height: 600px;
-  width: 600px;
-  margin-top: 30px;
+#spriteA {
+  position: absolute;
+  top: 555px;
+  left: 60px;
+  width: 30px;
+  height: 30px;
+  background: url('images/characters/Sprite_Boy_LightBrownHair.gif') no-repeat;
+}
+
+#woodcountA, #woodcountB {
+  font-family: Arial;
+  font-size: 22px;
+  color: brown;
+  margin: 0px;
+  border: 1px solid brown;
+  height: 25px;
+  width: 107px;
+  float: right;
+}
+
+#coincountA, #coincountB {
+  font-family: Arial;
+  font-size: 22px;
+  color: orange;
+  margin: 0px;
+  border: 1px solid yellow;
+  height: 25px;
+  width: 107px;
+  float: right;
+}
+
+#sailA, #sailB {
+  font-family: Arial;
+  font-size: 22px;
+  color: white;
+}
+
+.pointbox {
+  height: 100px;
+  width: 108px;
+  border: 1px solid red;
+  float: right;
+  margin: 8px;
+}
+
+#spriteB {
+  position: absolute;
+  top: 605px;
+  left: 111px;
+  width: 30px;
+  height: 30px;
+  background: url('images/characters/Sprite_Boy_Blackhair.gif') no-repeat;
+}
+
+.rightGrid {
+  width: 300px;
+/*  height: 697px;*/
+  height: 602px;
+  margin-left: 100px;
+  float: right;
+  color: white;
+  font-family: Helvetica;
+  text-align: center;
+  background-color: black;
+  border: 8px dotted rgba(255,255,255,0.7);
+  position: relative;
+}
+
+.displayname {
+  height: 35px;
+  padding: 6px;
+  color: white;
+}
+
+/*#nameA {
+  color: pink;
+}
+
+#nameB {
+  color: teal;
+}*/
+
+#playerA {
+  height: 193px;
+  width: 294px;
+  margin-left: 2px;
+}
+
+#playerB {
+  height: 193px;
+  width: 294px;
+  margin-left: 2px;
+}
+
+#dice {
   background-color: white;
+  margin-top: 30px;
 }
 
-#info {
-  height: 200px;
-  background-color: white;
-  margin-top: 40px;
+#dicebox {
+  height: 210px;
+  width: 298px;
+}
 
+#rolldice {
+  height: 80px;
+  width: 250px;
+  background-color: magenta;
+  border: 1px solid white;
 }
+
+#boatA, #boatB {
+  height: 90px;
+  width: 90px;
+  border: 1px solid white;
+  margin: 15px 0px 0px 22px;
+  padding: 0px;
+  float: left;
 }
+
+#boatA {
+  border: 1px solid pink;
+}
+
+#boatB {
+  border: 1px solid teal;
+}
+
+p {
+  margin-bottom: 9px;
+}
+
+#playerAmoves {
+  color: tan;
+  border: 3px solid rgba(255, 255, 255,0.5);
+  width: 293px;
+}
+
+#playerBmoves {
+  color: tan;
+  width: 292px;
+  border: 3px solid rgba(255, 255, 255,0.5);
+  margin-left: -6px;
+}
+
+table {
+  width: 750px;
+  height: 687px;
+  text-align: center;
+  border: 1px dotted white;
+}
+
+table, tr, td {
+  border: 1px solid white;
+  border-spacing: 0px;
+}
+/*  background-color: #E9C771;*/
+/*  background-color: #57D4F4; /*water color */
+
+#D4, #I8, #G14, #B8, #C12, #B4, #C14, #G8, #J5, #C6 {
+  padding: 0px;
+}
+
+td {
+  height: 48px;
+  width: 48px;
+  padding: 0px;
+}
+
+.land {
+   background-color: #E6D4AC;
+}
+
+.water {
+  background-color: #57D4F4;
+}
+
+#mapspace {
+  position: relative;
+  width: 749px;
+  height: 697px;
+  border: 10px dotted rgba(255,255,255,0.7)
+}
+
+#reset {
+  height: 30px;
+  width: 200px;
+  background-color: yellow;
+  border: 1px solid white;
+  margin: 0 auto;
+  position: absolute;
+  top: 640px;
+  left: 50px;
+}
+
+.wood1, .wood2, .wood3, .wood4, .wood5, .wood6 {
+     background-color: #E6D4AC;
+}
+
+.coin1, .coin2, .coin3, .coin4, .coin5, .coin6 {
+     background-color: #57D4F4;
+}
+
+#overlayA, #overlayB {
+     visibility: hidden;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     width:100%;
+     height:100%;
+     text-align:center;
+     z-index: 1000;
+}
+
+#overlayA div, #overlayB div {
+     width: 260px;
+     height: 330px;
+     margin: 265px auto;
+     background-color: rgba(0,0,0,0.5);
+     border: 10px solid yellow;
+     font-size: 40px;
+     color: white;
+     font-family: Helvetica;
+     padding: 42px;
+     text-align:center;
+     font-size: 40px;
+     border-radius: 35px;
+}
+
+p {
+    color: red;
+    margin: 16px 0px 16px 0px;
+}
+
+
+
+
