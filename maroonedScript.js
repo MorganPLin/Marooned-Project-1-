@@ -13,7 +13,11 @@ var face6=new Image()
 face6.src="images/dice/d6.gif";
 
 var displaymoveA = document.getElementById('playerAmoves');
+<<<<<<< HEAD
 var displaymoveB = document.getElementById('playerBmoves');
+=======
+var displaymoveB = document.getElementById('playerBmoves')
+>>>>>>> d555ce5dcded63496bb3df0138fa6e1f27fbee43
 var counter = 0;
 var randomDice = Math.floor(Math.random()*6+1);
 
