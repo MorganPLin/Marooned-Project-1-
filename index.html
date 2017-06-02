@@ -1,34 +1,63 @@
 <!DOCtype html>
 <html lang="en">
 <head>
-
   <link rel="stylesheet" href="maroonedStyle.css">
-
 </head>
 
-
-<header>
-  MAROONED
-</header>
-
 <body>
-
-  <div class='main'>
-    <div id='map'></div>
-    <div id='info'></div>
-  </div>
-
-  <div class='rightGrid'>
-    <div id='playerA'></div>
-    <div id='dice'>
-      <input
-    <div id='player B'></div>
-  </div>
-
-
+  <header>
+    <img src="images/maroonedtitle.gif" id='title'>
+  </header>
+  <div class='content'>
+    <div id='mapspace'>
+      <div id="spriteA"></div>
+      <div id="spriteB"></div>
+    </div>
+    <div class='rightGrid'>
+      <div id='playerA'>
+        <div class='displayname' id='nameA'>PLAYER A</div>
+        <div id='playerAmoves'>Move 0 Spots</div>
+        <div class='pointbox'>
+          <div id='woodcountA'>Wood x 0</div>
+          <div id='coincountA'>Coins x 0</div>
+          <div id='sailA'>Sail x 0</div>
+        </div>
+        <div id = 'boatA'>
+          <img src = 'images/characters/Sprite_LightBrownHair.gif'>
+        </div>
+      </div>
+      <div id='dicebox'>
+           <img src="images/dice/d1.gif" name="dice" id="dice">
+           <button type='button' onClick="throwdice()" id='rolldice'>ROLL DICE</button>
+      </div>
+      <div id='playerB'>
+        <div class='displayname' id='nameB'>PLAYER B</p>
+          <div id='playerBmoves'>Move 0 Spots</div>
+          <div class='pointbox'>
+            <div id='woodcountB'>Wood x 0</div>
+            <div id='coincountB'>Coins x 0</div>
+            <div id='sailB'>Sail x 0</div>
+          </div>
+          <div id = 'boatB'>
+              <img src = 'images/characters/Sprite_BlackHair.gif'>
+          </div>
+        </div>
+      <button id='reset'>RESET GAME</button>
+      </div>
+    </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="maroonedScript.js"></script>
-
 </body>
-</script>
 </html>
+<div id="overlayA">
+     <div>
+          <p>GAME OVER.</p>
+          <p1>Player A has sailed away from Marooned! Reset game.</p1>
+     </div>
+</div>
+<div id="overlayB">
+     <div>
+          <p>GAME OVER.</p>
+          <p2>Player B has sailed away from Marooned! Reset game.</p2>
+     </div>
+</div>
